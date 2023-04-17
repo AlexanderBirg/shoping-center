@@ -12,8 +12,8 @@ app.get('/', (req, res) => {
 });
 
 // Определяем маршрут для страницы со списком магазинов
-app.get('/magaziny', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'magaziny.html')); // Отправляем файл magaziny.html клиенту
+app.get('/shops', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'shops.html')); // Отправляем файл magaziny.html клиенту
 });
 
 // Определяем маршрут для страницы новостей
@@ -27,25 +27,14 @@ app.get('/novosti/:id', (req, res) => {
   res.send(`Страница новости с id ${id}`); // Отправляем ответ клиенту с использованием id
 });
 
-// Определяем маршрут для страницы акций
-app.get('/akcii', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'akcii.html')); // Отправляем файл akcii.html клиенту
-});
-
-// Определяем маршрут для страницы акции с определенным id
-app.get('/akcii/:id', (req, res) => {
-  const id = req.params.id; // Получаем id из параметра запроса
-  res.send(`Страница акции с id ${id}`); // Отправляем ответ клиенту с использованием id
-});
-
 // Определяем маршрут для страницы "О ТЦ"
-app.get('/o-tc', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'o-tc.html')); // Отправляем файл o-tc.html клиенту
+app.get('/about', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'about.html')); // Отправляем файл o-tc.html клиенту
 });
 
 // Определяем маршрут для страницы контактов
-app.get('/kontakty', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'kontakty.html')); // Отправляем файл kontakty.html клиенту
+app.get('/contacts', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'contacts.html')); // Отправляем файл kontakty.html клиенту
 });
 
 const port = process.env.PORT || 3000; // Задаем номер порта для сервера
