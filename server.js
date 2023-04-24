@@ -1,44 +1,26 @@
 const express = require('express');
+const nunjucks = require('nunjucks');
 const path = require('path');
+const newsRoutes = require('./routers/newsRouter');
+const shopsRoutes = require('./routers/shopsRouter');
 
 const app = express();
+const PORT = 8000;
 
-// Указываем путь к папке со статическими файлами (css, js, изображения и т.д.)
+// Настройка Nunjucks
+nunjucks.configure('public', {
+  autoescape: true,
+  express: app
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-// Определяем маршрут для главной страницы
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'main.html'));
-});
+// маршруты
+app.use('/news', newsRoutes);
+app.use('/shops', shopsRoutes);
 
-// Определяем маршрут для страницы со списком магазинов
-app.get('/shops', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'shops.html'));
-});
-
-// Определяем маршрут для страницы новостей
-app.get('/news', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'news.html'));
-});
-
-// Определяем маршрут для страницы новости с определенным id
-app.get('/news/:id', (req, res) => {
-  const id = req.params.id; // Получаем id из параметра запроса
-  res.send(`Страница новости с id ${id}`); // Отправляем ответ клиенту с использованием id
-});
-
-// Определяем маршрут для страницы "О ТЦ"
-app.get('/about', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'about.html'));
-});
-
-// Определяем маршрут для страницы контактов
-app.get('/contacts', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'contacts.html'));
-});
-
-const port = process.env.PORT || 3000;
-
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server listening port ${PORT}`);
 });

@@ -41,6 +41,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var scro
 
 /***/ }),
 
+/***/ "./src/components/complex/shops-list/shops-list.js":
+/*!*********************************************************!*\
+  !*** ./src/components/complex/shops-list/shops-list.js ***!
+  \*********************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nfetch('/shops?offset=10').then(function (response) {\n  response.json();\n}).then(function (data) {\n  console.log(data);\n});\n\n//# sourceURL=webpack://gulp-template/./src/components/complex/shops-list/shops-list.js?");
+
+/***/ }),
+
 /***/ "./src/scripts.js":
 /*!************************!*\
   !*** ./src/scripts.js ***!
@@ -48,7 +59,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var scro
 /***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_complex_header_header_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/complex/header/header.js */ \"./src/components/complex/header/header.js\");\n/* harmony import */ var _components_complex_footer_footer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/complex/footer/footer.js */ \"./src/components/complex/footer/footer.js\");\n\n\n\n//# sourceURL=webpack://gulp-template/./src/scripts.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_complex_header_header_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/complex/header/header.js */ \"./src/components/complex/header/header.js\");\n/* harmony import */ var _components_complex_footer_footer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/complex/footer/footer.js */ \"./src/components/complex/footer/footer.js\");\n/* harmony import */ var _components_complex_shops_list_shops_list_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/complex/shops-list/shops-list.js */ \"./src/components/complex/shops-list/shops-list.js\");\n\n\n\n\n//# sourceURL=webpack://gulp-template/./src/scripts.js?");
 
 /***/ })
 

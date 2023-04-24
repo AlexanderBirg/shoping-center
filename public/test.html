@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #ededed;
+  }
+
+  .wrapper {
+    width: 100%;
+    max-width: 1280px;
+    padding: 0 40px;
+    margin: 0 auto;
+  }
+
+  .news-list {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .news-list__item {
+    width: 25%;
+    margin-bottom: 20px;
+    padding: 0 10px;
+  }
+
+  .news-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: #e4efc1;
+    border-radius: 6px;
+    padding: 10px;
+  }
+
+  .news-item__img {
+    border-radius: 6px;
+    margin-bottom: 5px;
+  }
+
+  img {
+    max-width: 100%;
+  }
+</style>
+<body>
+  
+  <div class="wrapper">
+    <ul class="news-list">
+      {% for item in data %}
+      <li class="news-list__item">
+        <div class="news-item">
+          <img class="news-item__img" src="{{ item.image }}" alt="">
+          <div class="news-item__body">
+            <h2>{{ item.title }}</h2>
+            <div>{{ item.day }}.{{ item.month }}.{{ item.year }}</div>
+            <p>{{ item.description }}</p>
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>
